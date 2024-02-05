@@ -1,0 +1,149 @@
+% ПРЕАМБУЛА
+% Вы можете её полностью изменить,
+% если знаете, что делаете, и если результат останется тем же
+\documentclass[14pt, a4paper]{extreport}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+ \addto\captionsrussian{
+  \renewcommand{\contentsname}
+    {\begin{center}
+        \bfseries\large Содержание
+    \end{center}}
+ }
+\usepackage{indentfirst}
+\usepackage[intlimits]{amsmath}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{geometry}
+ \geometry{
+    includefoot,
+    footskip=1cm,
+    left=3cm,
+    top=1.5cm,
+    right=1cm,
+    bottom=1.5cm
+ }
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{tabto}
+\usepackage{soul}
+\usepackage{graphicx}
+ \graphicspath{{./images/}}
+\usepackage{wrapfig}
+\usepackage{subfiles}
+\usepackage{totpages}
+\usepackage{ifthen}
+\usepackage{refcount}
+\usepackage{blindtext}
+
+\newcommand{\TitlePage}[6]{
+    \begin{titlepage}
+    \newpage
+    % шапка
+    \begin{flushleft}
+    {\footnotesize
+        \begin{tabularx}{\textwidth}{c m{0.93\textwidth}}
+            \begin{minipage}{0.07\textwidth}
+                \includegraphics[width=1.9\linewidth]{bmstu_logo}
+            \end{minipage}
+            &
+            \begin{center}
+                \bfseries
+                Министерство науки и высшего образования Российской Федерации\\
+                Федеральное государственное бюджетное образовательное учреждение\\
+                высшего образования\\
+                <<Московский государственный технический университет имени Н.Э.~Баумана\\
+                (национальный исследовательский университет)>>\\
+                (МГТУ им. Н.Э. Баумана)
+            \end{center}\\
+        \end{tabularx}
+    }
+    \end{flushleft}
+    
+    \begin{center}
+        \par\rule{\textwidth}{1mm}
+        \begin{flushleft}
+            \small{\MakeUppercase{Факультет} \tabto{3cm} <<Специальное машиностроение>> (СМ)}\\
+            \vspace{5mm}
+            \small{\MakeUppercase{Кафедра} \tabto{3cm} <<Ракетные и импульсные системы>> (СМ-6)}\\
+        \end{flushleft}
+        \vspace{4cm}
+        {
+            \textbf{\Large ОТЧЁТ}\\
+            \vspace{7mm}
+            {\large по лабораторной работе №{#1}}\\
+            \vspace{3mm}
+            {\large по курсу <<#2>>}\\
+            \vspace{3mm}
+            {\large на тему: <<#3>>}\\
+        }
+        \vspace{4cm}
+        {\small
+        \begin{tabularx}{\textwidth}{p{7cm}p{0.1cm}p{3cm}p{0.1cm}X}
+            Выполнил: студент группы {#4}  &  & \phantom{(подпись, дата)} & & {#5} \\ \cline{3-3}
+            & & \hfil\scriptsize \raisebox{5pt}{(подпись, дата)}\hfil & & \\
+            & & & & \\
+            & & & & \\
+            Преподаватель: &  & \phantom{(подпись, дата)} & & {#6} \\ \cline{3-3}
+            & & \hfil\scriptsize \raisebox{5pt}{(подпись, дата)}\hfil & & \\
+        \end{tabularx}
+        }
+        \vfill
+        Москва, \the\year\ г.
+    \end{center}
+    \clearpage
+    \end{titlepage}
+    \setcounter{page}{2}
+}
+
+\setlength\parindent{1.25cm}
+\titleformat*{\section}{\large\bfseries}
+\titlespacing*{\section}{1.25cm}{6pt}{6pt}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titlespacing*{\subsection}{1.25cm}{6pt}{6pt}
+
+\sloppy
+% КОНЕЦ ПРЕАМБУЛЫ
+
+% ОСНОВНАЯ ЧАСТЬ ДОКУМЕНТА
+\begin{document}
+
+% Внесите информацию для формирования титульного листа
+\TitlePage
+{1}
+{Название курса}
+{Название темы}
+{СМ6-113}               % группа
+{И.Р.~Иванов-Римский}   % и.о. фамилия студента
+{П.П.~Петров}           % и.о. фамилия преподавателя
+
+% Межстрочный интервал
+\setstretch{1.5}
+
+% Содержание будет отображено автоматически,
+% если объём работы превысит 10 страниц
+\newcommand\ConditionalTOC{
+  \ifthenelse{\pageref{LastPage} > 10}{
+    \tableofcontents
+    \clearpage
+  }{}
+}
+
+\ConditionalTOC
+
+% Отключаем нумерацию разделов
+\setcounter{secnumdepth}{0}
+
+% Разделы ДЗ:
+% ваша задача - описать решение ДЗ в трёх нижеследующих файлах
+% (подробности см. в указанных файлах)
+\subfile{lab/1_description}
+\subfile{lab/2_theory}
+\subfile{lab/3_practic}
+\subfile{lab/4_conclusions}
+
+% Метка последней страницы, чтобы достать её номер
+\label{LastPage}
+
+\end{document}
