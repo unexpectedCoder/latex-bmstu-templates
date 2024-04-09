@@ -1,0 +1,40 @@
+\documentclass[../homework.tex]{subfiles}
+ \graphicspath{{\subfix{../images/}}}
+
+
+\begin{document}
+
+\newpage
+
+\section{Приложение}
+
+Приложение содержит исходный код компьютерной программы решения домашнего задания.
+Программа написана на языке программирования Python~3.
+
+\footnotesize
+
+% Свой код помещаете внутри \begin{lstlisting}...\end{lstlisting}.
+% Убирайте лишнии пустые строки, комментарии и другую бесполезность.
+% Между импортами и кодом 2 пустые строки, между функциями и между функциями и основным кодом тоже 2 пустые строки.
+% Внутри функций или основного кода допускается одна пустая строка, если это улучшает читаемость кода.
+\begin{lstlisting}[
+    language=Python,
+    breaklines=true,
+    numbers=left,
+    numberstyle=\tiny
+]
+import numpy as np
+
+
+def some_function(a, b):
+    c = np.sqrt(a*b + 1)
+    return c/a + b
+
+
+result = some_function(4, 7)
+with open("some_file.txt", "w") as f:
+    f.write(f"Some result: {result}")
+
+\end{lstlisting}
+
+\end{document}
