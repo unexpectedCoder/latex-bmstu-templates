@@ -59,25 +59,22 @@
 записывается так:
 \begin{verbatim}
 \begin{equation}
-d(x) =
-    \begin{cases}
-        D_{k} - (D_{k}-d_{*})
-            \cfrac{x}{x_{*}}, & 0 < x \leq x_{*},\\
-        d_{*} + (d_{B}-d_{*})
-            \cfrac{x-x_{*}}{x_{B}-x_{*}}, & x > x_{*}.
-    \end{cases}
+d(x) = \begin{cases}
+        D_к - (D_к - d_*) \cfrac{x}{x_*}, & 0 < x \leq x_*, \\
+        d_* + (d_в - d_*) \cfrac{x - x_*}{x_в - x_*}, & x > x_*.
+\end{cases}
 \label{eq:diameter}
 \end{equation}
 \end{verbatim}
 а отображается так:
 %
 \begin{equation}
-    d(x) =
-        \begin{cases}
-            D_{k} - (D_{k}-d_{*}) \cfrac{x}{x_{*}}, & 0 < x \leq x_{*},\\
-            d_{*} + (d_{B}-d_{*}) \cfrac{x-x_{*}}{x_{B}-x_{*}}, & x > x_{*}.
-        \end{cases}
-    \label{eq:diameter}
+d(x) =
+    \begin{cases}
+        D_к - (D_к - d_*) \cfrac{x}{x_*}, & 0 < x \leq x_*, \\
+        d_* + (d_в - d_*) \cfrac{x - x_*}{x_в - x_*}, & x > x_*.
+    \end{cases}
+\label{eq:diameter}
 \end{equation}
 
 Сослаться на уравнение можно с помощью команды \texttt{\\ref}.
