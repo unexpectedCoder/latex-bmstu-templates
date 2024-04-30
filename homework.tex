@@ -8,7 +8,7 @@
 \usepackage{mathtext}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[english, russian]{babel}
+\usepackage[russian]{babel}
  \addto\captionsrussian{
   \renewcommand{\contentsname}
     {\begin{center}
@@ -20,6 +20,7 @@
 \usepackage{amsfonts}
 \usepackage{ctable}
 \usepackage{caption}
+\usepackage{subcaption}
 \usepackage{tabularx}
 \usepackage{geometry}
  \geometry{
@@ -109,6 +110,8 @@
 
 \DeclareCaptionLabelSeparator{custom}{.}
 \DeclareCaptionFormat{custom}{#1#2 #3}
+\DeclareCaptionLabelFormat{noleftbracket}{#1#2)}
+\captionsetup[sub]{labelformat=noleftbracket}
 \captionsetup[table]{
     format=custom,
     labelsep=custom,
@@ -129,6 +132,8 @@
 
 
 \newcommand{\degree}{$^\circ$}
+\newcommand{\figspace}{\vspace{10pt}}
+\renewcommand\thesubfigure{\asbuk{subfigure}}
 
 
 \sloppy
